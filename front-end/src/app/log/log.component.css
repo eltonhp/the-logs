@@ -1,0 +1,10 @@
+.start-flex {
+    margin: 0 auto;
+    display: flex;
+    padding-right:80px;
+
+}
+
+.flex-end {
+    justify-content: flex-end;
+}

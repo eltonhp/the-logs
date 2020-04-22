@@ -1,0 +1,89 @@
+<div class="start-flex flex-end ">
+    <div class="position-right">
+        <button mat-fab color="success" (click)="onAddLog($event)" matTooltip="Cadastrar" matTooltipPosition="left">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+</div>
+
+<div class="mt-3 pl-3 pr-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Filter</mat-label>
+                        <input matInput placeholder="Ex. IP  e  Request	Status">
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-content-top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Logs</h4>
+                        <p class="card-category"> Consulta realizada</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Data
+                                </th>
+                                <th>
+                                    IP
+                                </th>
+                                <th>
+                                    Request
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th class="d-none d-sm-block">
+                                    User Agent
+                                </th>
+                                <th>
+
+                                </th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        2019-01-01 00:00:11.763
+                                    </td>
+                                    <td>
+                                        192.168.234.82
+                                    </td>
+                                    <td>
+                                        GET / HTTP/1.1
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                    <td class="text-primary d-none d-sm-block">
+                                        Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393
+                                    </td>
+                                    <td>
+                                        <button mat-icon-button  matTooltip="Detalhe" matTooltipPosition="above" color="primary" (click)="onDetails(0)">
+                                            <mat-icon class="mat-18">reorder</mat-icon>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
