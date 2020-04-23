@@ -1,4 +1,3 @@
-
 # language: pt
 @LogTeste
 Funcionalidade: Testar as operacoes basicas de CRUD de log

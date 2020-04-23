@@ -45,9 +45,6 @@ public class LogPassos {
     @Dado("^o total de logs criadas$")
     public void o_total_de_logs_criadas()  throws Throwable {
 
-
-
-
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpPost request = new HttpPost("http://localhost:8080/api/logs");
         request.addHeader("Content-Type", "application/json");
