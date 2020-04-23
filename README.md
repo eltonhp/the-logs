@@ -42,7 +42,8 @@ Foi aplicado o BDD com a biblioteca cucumber.
 
 ## Execução
 #### Executar a aplicação back-end na máquina física:
-Abra o prompt de comando ou shell na raiz do projeto e faça a seguinte instrução:
+Mude as credenciais do banco postgres no arquivo src/main/resources/application.properties, em seguida
+abra o prompt de comando ou shell na raiz do projeto e faça a seguinte instrução:
 `mvnw clean package && java -jar target/backend-0.0.1-SNAPSHOT.jar`, o sistema irá subir na porta 8080. </br>
 
 Após subir o sistema para visualizar os endpoints insera este endereço no browser: `http://localhost:8080/swagger-ui.html`
