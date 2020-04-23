@@ -34,7 +34,7 @@ Foi aplicado o BDD com a biblioteca cucumber.
 ## Front-End
  O front end foi feito em angular versão 9. 
  O Formulário de Log valida se ip é requirido e se tem o formato de mascara 000.000.000, assim só será permitido na entrada
- este campo um IP, caso contrário a inserção ou alteração não 
+ dese campo um IP, caso contrário a inserção ou alteração não 
  acontecerá, além disto todos os status do HTTP são exibidos no <i>drop down list</i>.
 
  No formulário foi inserido o componente para fazer drag and drop de um arquivo log. 
