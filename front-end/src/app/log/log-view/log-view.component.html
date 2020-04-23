@@ -2,20 +2,24 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <mat-card>
+                <ng-container *ngIf="(logObservable | async) as log">
+                    <mat-card>
                     <mat-card-header>
-                        <mat-card-title>2019-01-01 00:00:11.763</mat-card-title>
-                        <mat-card-subtitle>IP: GET / HTTP/1.1</mat-card-subtitle>
-                        <mat-card-subtitle>Request: GET / HTTP/1.1</mat-card-subtitle>
-                        <mat-card-subtitle>Status: 200</mat-card-subtitle>
-                        <mat-card-subtitle>Agent:  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393</mat-card-subtitle>
+                            <mat-card-title>Date: {{log.data | date:'yyyy-dd-mm h:mm:ss.SSS'}}</mat-card-title>
+                            <mat-card-subtitle>IP: {{log.ip}}</mat-card-subtitle>
+                            <mat-card-subtitle>Request: {{log.request}}</mat-card-subtitle>
+                            <mat-card-subtitle>Status: {{log.status}}</mat-card-subtitle>
+                            <mat-card-subtitle>Agent:  {{log.agent}}</mat-card-subtitle>
+
+
                     </mat-card-header>
                     <mat-card-actions>
                         <button mat-button (click)="goBack($event)">VOLTAR</button>
-                        <button mat-button (click)="onEdit($event)">ALTERAR</button>
-                        <button mat-button (click)="onConfirmRemove($event)">REMOVER</button>
+                        <button mat-button (click)="onEdit($event, log)">ALTERAR</button>
+                        <button mat-button (click)="onConfirmRemove($event, log)">REMOVER</button>
                     </mat-card-actions>
                 </mat-card>
+                </ng-container>
             </div>
         </div>
     </div>

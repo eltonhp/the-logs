@@ -1,14 +1,14 @@
 <h1 mat-dialog-title>Deseja Deletar o  Log? </h1>
 <div mat-dialog-content>
     <mat-list>
-        <mat-list-item> Data: data </mat-list-item>
-        <mat-list-item> IP: ip </mat-list-item>
-        <mat-list-item> Agent: agent </mat-list-item>
-        <mat-list-item> Status: status </mat-list-item>
+        <mat-list-item> Data: {{log.data}} </mat-list-item>
+        <mat-list-item> IP: {{log.ip}} </mat-list-item>
+        <mat-list-item> Agent: {{log.agent}} </mat-list-item>
+        <mat-list-item> Status: {{log.status}} </mat-list-item>
     </mat-list>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Não</button>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Sim</button>
+    <button mat-button [mat-dialog-close]="log" cdkFocusInitial>Sim</button>
 </div>
 

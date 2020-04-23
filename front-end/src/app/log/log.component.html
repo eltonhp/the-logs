@@ -11,10 +11,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form class="example-form">
+                <form class="example-form" [formGroup]="logGroup">
                     <mat-form-field class="example-full-width">
-                        <mat-label>Filter</mat-label>
-                        <input matInput placeholder="Ex. IP  e  Request	Status">
+                        <mat-label>Filtro</mat-label>
+                        <input matInput placeholder="Ex. IP  e  Request	Status" formControlName="filter">
                     </mat-form-field>
                 </form>
             </div>
@@ -55,24 +55,25 @@
                                 </th>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                <tr *ngFor="let log of  logObservable | async">
                                     <td>
-                                        2019-01-01 00:00:11.763
+                                        {{log.data | date:'yyyy-dd-mm h:mm:ss.SSS'}}
                                     </td>
                                     <td>
-                                        192.168.234.82
+                                        {{log.ip | mask: 'IP'}}
                                     </td>
                                     <td>
-                                        GET / HTTP/1.1
+                                        {{log.request}}
                                     </td>
                                     <td>
-                                        200
+                                        {{log.status}}
+
                                     </td>
                                     <td class="text-primary d-none d-sm-block">
-                                        Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393
+                                        {{log.agent}}
                                     </td>
                                     <td>
-                                        <button mat-icon-button  matTooltip="Detalhe" matTooltipPosition="above" color="primary" (click)="onDetails(0)">
+                                        <button mat-icon-button  matTooltip="Detalhe" matTooltipPosition="above" color="primary" (click)="onDetails(log.id)">
                                             <mat-icon class="mat-18">reorder</mat-icon>
                                         </button>
                                     </td>

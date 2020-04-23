@@ -4,7 +4,6 @@ import com.log.backend.expection.LogNotFoundException;
 import com.log.backend.model.Log;
 import com.log.backend.repository.LogRepository;
 import org.apache.commons.lang3.Validate;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -26,7 +25,6 @@ public class LogService {
     public void salveLog(Log log) throws LogNotFoundException {
         this.validaLog(log);
         log.setData(LocalDateTime.now());
-        log.setStatus(HttpStatus.OK.value());
         this.logRepository.save(log);
     }
 
@@ -38,6 +36,7 @@ public class LogService {
             Validate.notNull(log.getAgent(), "Agente não pode ser nulo");
             Validate.notNull(log.getIp(), "IP não pode ser nulo");
             Validate.notNull(log.getRequest(), "Tipo de Requisição não pode ser nulo");
+            Validate.notNull(log.getStatus(), "Status não pode ser nulo");
 
         } catch(NullPointerException e) {
             throw new LogNotFoundException(e.getMessage());

@@ -8,7 +8,6 @@ import { UserProfileComponent } from '../../user-profile/user-profile.component'
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
-import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -30,6 +29,7 @@ import {LogLoteComponent} from '../../log/log-edit/log-lote/log-lote.component';
 import {LogManualComponent} from '../../log/log-edit/log-manual/log-manual.component';
 import {DndDirective} from '../../directives/dnd.directive';
 import {ProgressComponent} from '../../components/progress/progress.component';
+import {IConfig, NgxMaskModule} from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -47,7 +47,8 @@ import {ProgressComponent} from '../../components/progress/progress.component';
     MatCardModule,
     MatListModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxMaskModule.forRoot(),
   ],
   declarations: [
     DashboardComponent,
@@ -55,7 +56,6 @@ import {ProgressComponent} from '../../components/progress/progress.component';
     TableListComponent,
     TypographyComponent,
     IconsComponent,
-    MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
     LogComponent,

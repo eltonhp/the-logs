@@ -24,7 +24,6 @@ public class LogController {
     @Autowired
     private LogService logService;
 
-
     @GetMapping(path = "/logs")
     @ApiOperation(value = "Return the list logs")
     public ResponseEntity<List<LogDto>> getLogs() {
@@ -36,19 +35,36 @@ public class LogController {
     }
 
     @GetMapping("/logs/{id}")
-    ResponseEntity<Log> getLogs(@PathVariable Integer id) throws LogNotFoundException {
-      Log response = this.logService.findLogById(id);
+    @ApiOperation(value = "Return the log by id")
+    ResponseEntity<LogDto> getLogs(@PathVariable Integer id) throws LogNotFoundException {
+      LogMapper logMapper = LogMapper.INSTANCE;
+      LogDto response = logMapper.LogEntityToLogDto(this.logService.findLogById(id));
       return ResponseEntity.ok(response);
 
     }
 
     @PostMapping(path = "/logs")
-    public ResponseEntity<Void> saveLog(@RequestBody Log log) throws LogNotFoundException {
-         this.logService.salveLog(log);
+    @ApiOperation(value = "Salve all logs")
+    public ResponseEntity<Void> saveLog(@RequestBody LogDto logDto) throws LogNotFoundException {
+        LogMapper logMapper = LogMapper.INSTANCE;
+        Log log = logMapper.logDtoToLog(logDto);
+        this.logService.salveLog(log);
          return noContent().build();
     }
 
+    @PutMapping(path = "/logs/{id}")
+    @ApiOperation(value = "update the log")
+    public ResponseEntity<Void> saveLog(@RequestBody LogDto logDto, @PathVariable Integer id) throws LogNotFoundException {
+        LogMapper logMapper = LogMapper.INSTANCE;
+        Log log = logMapper.logDtoToLog(logDto);
+        log.setId(id);
+        this.logService.salveLog(log);
+
+        return noContent().build();
+    }
+
     @DeleteMapping(path = "/logs/{id}")
+    @ApiOperation(value = "delete the log")
     public ResponseEntity<Void> deleteLog(@PathVariable Integer id) throws LogNotFoundException {
         Log response = this.logService.findLogById(id);
         this.logService.deleteLog(response);

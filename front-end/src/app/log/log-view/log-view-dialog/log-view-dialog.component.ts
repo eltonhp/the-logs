@@ -10,13 +10,11 @@ import {Log} from '../../../model/log';
 export class LogViewDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<LogViewDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Log) { }
+              @Inject(MAT_DIALOG_DATA) public log: Log) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }
