@@ -28,7 +28,7 @@ public class LogService {
         this.logRepository.save(log);
     }
 
-    private void validaLog(Log log) throws LogNotFoundException {
+    public void validaLog(Log log) throws LogNotFoundException {
         if(log == null) {
             throw new LogNotFoundException();
         }
